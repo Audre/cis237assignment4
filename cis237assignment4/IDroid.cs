@@ -13,5 +13,6 @@ namespace cis237assignment4
 
         //property to get the total cost of a droid
         decimal TotalCost { get; set; }
+        string Model { get; }
     }
 }

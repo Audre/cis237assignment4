@@ -17,6 +17,11 @@ namespace cis237assignment4
         protected decimal baseCost;
         protected decimal totalCost;
 
+        public string Model
+        {
+            get { return model; }
+        }
+
         //The public property for TotalCost
         public decimal TotalCost
         {

@@ -124,5 +124,38 @@ namespace cis237assignment4
             //return the completed string
             return returnString;
         }
+
+        public void SortByType(IDroid droidcollection, Stack<string> protocolStack, Stack<string> utilityStack, Stack<string> janitorStack, Stack<string> astromechStack)
+        {
+            for (int i = 0; i < lengthOfCollection; i++)
+            {
+                switch (droidcollection.Model)
+                {
+                    case "Protocol":
+                        {
+                            protocolStack.push(droidcollection.ToString());
+                            break;
+                        }
+
+                    case "Utility":
+                        {
+                            utilityStack.push(droidcollection.ToString());
+                            break;
+                        }
+
+                    case "Janitor":
+                        {
+                            janitorStack.push(droidcollection.ToString());
+                            break;
+                        }
+
+                    case "Astromech":
+                        {
+                            astromechStack.push(droidcollection.ToString());
+                            break;
+                        }
+                }
+            }
+        }
     }
 }
