@@ -13,10 +13,10 @@ namespace cis237assignment4
             //Create a new droid collection and set the size of it to 100.
             IDroidCollection droidCollection = new DroidCollection(100);
 
-            Stack<string> astromechStack = new Stack<string>();
-            Stack<string> janitorStack = new Stack<string>();
-            Stack<string> protocolStack = new Stack<string>();
-            Stack<string> utilityStack = new Stack<string>();
+            Stack<AstromechDroid> astromechStack = new Stack<AstromechDroid>();
+            Stack<JanitorDroid> janitorStack = new Stack<JanitorDroid>();
+            Stack<ProtocolDroid> protocolStack = new Stack<ProtocolDroid>();
+            Stack<UtilityDroid> utilityStack = new Stack<UtilityDroid>();
 
             //Create a user interface and pass the droidCollection into it as a dependency
             UserInterface userInterface = new UserInterface(droidCollection);

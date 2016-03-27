@@ -125,35 +125,38 @@ namespace cis237assignment4
             return returnString;
         }
 
-        public void SortByType(IDroid droidcollection, Stack<string> protocolStack, Stack<string> utilityStack, Stack<string> janitorStack, Stack<string> astromechStack)
+        public void SortByType(IDroid droidcollection, Stack<ProtocolDroid> protocolStack, Stack<UtilityDroid> utilityStack, Stack<JanitorDroid> janitorStack, Stack<AstromechDroid> astromechStack)
         {
-            for (int i = 0; i < lengthOfCollection; i++)
+            foreach (IDroid droid in droidCollection)
             {
-                switch (droidcollection.Model)
+                if (droid != null)
                 {
-                    case "Protocol":
-                        {
-                            protocolStack.push(droidcollection.ToString());
-                            break;
-                        }
+                    switch (droidcollection.Model)
+                    {
+                        case "Astromech":
+                            {
+                                astromechStack.push((AstromechDroid)droidcollection);
+                                break;
+                            }
 
-                    case "Utility":
-                        {
-                            utilityStack.push(droidcollection.ToString());
-                            break;
-                        }
+                        case "Janitor":
+                            {
+                                janitorStack.push((JanitorDroid)droidcollection);
+                                break;
+                            }
 
-                    case "Janitor":
-                        {
-                            janitorStack.push(droidcollection.ToString());
-                            break;
-                        }
+                        case "Utility":
+                            {
+                                utilityStack.push((UtilityDroid)droidcollection);
+                                break;
+                            }
 
-                    case "Astromech":
-                        {
-                            astromechStack.push(droidcollection.ToString());
-                            break;
-                        }
+                        case "Protocol":
+                            {
+                                protocolStack.push((ProtocolDroid)droidcollection);
+                                break;
+                            }
+                    }
                 }
             }
         }
