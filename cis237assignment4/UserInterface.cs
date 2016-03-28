@@ -257,7 +257,7 @@ namespace cis237assignment4
                 choice = this.GetMenuChoice();
             }
 
-            //Based on the choice, call the next set of crieteria that needs to be determined
+            //Based on the choice, call the next set of criteria that needs to be determined
             switch (choice)
             {
                 case 1:

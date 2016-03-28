@@ -23,7 +23,20 @@ namespace cis237assignment4
             //Make new array for the collection
             droidCollection = new IDroid[sizeOfCollection];
             //set length of collection to 0
-            lengthOfCollection = 0;
+            droidCollection[0] = new ProtocolDroid("Carbonite", "Protocol", "Bronze", 1);
+            droidCollection[1] = new UtilityDroid("Carbonite", "Utility", "Bronze", true, true, true);
+            droidCollection[2] = new JanitorDroid("Carbonite", "Janitor", "Bronze", true, true, true, true, true);
+            droidCollection[3] = new AstromechDroid("Vanadium", "Astromech", "Bronze", true, true, true, true, 4);
+            droidCollection[4] = new ProtocolDroid("Vanadium", "Protocol", "Silver", 1);
+            droidCollection[5] = new UtilityDroid("Vanadium", "Utility", "Silver", true, false, false);
+            droidCollection[6] = new JanitorDroid("Vanadium", "Janitor", "Silver", true, false, true, false, true);
+            droidCollection[7] = new AstromechDroid("Vanadium", "Astromech", "Silver", true, false, true, false, 5);
+            droidCollection[8] = new ProtocolDroid("Quadranium", "Protocol", "Gold", 1);
+            droidCollection[9] = new UtilityDroid("Quadranium", "Utility", "Gold", false, true, false);
+            droidCollection[10] = new JanitorDroid("Quadranium", "Janitor", "Gold", false, true, false, true, false);
+            droidCollection[11] = new AstromechDroid("Quadranium", "Astromech", "Gold", false, true, false, true, 2);
+
+            lengthOfCollection = 12;
         }
 
         //The Add method for a Protocol Droid. The parameters passed in match those needed for a protocol droid
@@ -125,39 +138,72 @@ namespace cis237assignment4
             return returnString;
         }
 
-        public void SortByType(IDroid droidcollection, Stack<ProtocolDroid> protocolStack, Stack<UtilityDroid> utilityStack, Stack<JanitorDroid> janitorStack, Stack<AstromechDroid> astromechStack)
+        public void SortByType(Stack<ProtocolDroid> protocolStack, Stack<UtilityDroid> utilityStack, Stack<JanitorDroid> janitorStack, Stack<AstromechDroid> astromechStack)
         {
             foreach (IDroid droid in droidCollection)
             {
                 if (droid != null)
                 {
-                    switch (droidcollection.Model)
+                    switch (droid.Model)
                     {
                         case "Astromech":
                             {
-                                astromechStack.push((AstromechDroid)droidcollection);
+                                astromechStack.push((AstromechDroid)droid);
                                 break;
                             }
 
                         case "Janitor":
                             {
-                                janitorStack.push((JanitorDroid)droidcollection);
+                                janitorStack.push((JanitorDroid)droid);
                                 break;
                             }
 
                         case "Utility":
                             {
-                                utilityStack.push((UtilityDroid)droidcollection);
+                                utilityStack.push((UtilityDroid)droid);
                                 break;
                             }
 
                         case "Protocol":
                             {
-                                protocolStack.push((ProtocolDroid)droidcollection);
+                                protocolStack.push((ProtocolDroid)droid);
                                 break;
                             }
                     }
                 }
+            }
+        }
+
+        public void StackToQueue(Queue<IDroid> droidQueue, Stack<ProtocolDroid> protocolStack, Stack<UtilityDroid> utilityStack, Stack<JanitorDroid> janitorStack, Stack<AstromechDroid> astromechStack)
+        {
+            while (astromechStack != null)
+            {
+                droidQueue.Enqueue(astromechStack.pop());
+            }
+
+            while (janitorStack != null)
+            {
+                droidQueue.Enqueue(janitorStack.pop());
+            }
+
+            while (utilityStack != null)
+            {
+                droidQueue.Enqueue(utilityStack.pop());
+            }
+
+            while (protocolStack != null)
+            {
+                droidQueue.Enqueue(protocolStack.pop());
+            }
+        }
+
+        public void QueueToArray(Queue<IDroid> droidQueue)
+        {
+            int i = 0;
+            while (droidQueue != null)
+            {
+                droidCollection[i] = droidQueue.Dequeue();
+                i++;
             }
         }
     }

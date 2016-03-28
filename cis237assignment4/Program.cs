@@ -18,6 +18,8 @@ namespace cis237assignment4
             Stack<ProtocolDroid> protocolStack = new Stack<ProtocolDroid>();
             Stack<UtilityDroid> utilityStack = new Stack<UtilityDroid>();
 
+            Queue<IDroid> droidQueue = new Queue<IDroid>();
+
             //Create a user interface and pass the droidCollection into it as a dependency
             UserInterface userInterface = new UserInterface(droidCollection);
 
