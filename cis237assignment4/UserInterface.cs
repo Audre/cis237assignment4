@@ -108,7 +108,7 @@ namespace cis237assignment4
 
         public void PrintDroidListByPrice(IComparable[] droidArray)
         {
-            droidCollection.SortByPrice(droidArray);
+            droidCollection.SortByPrice();
             PrintDroidList();
         }
 

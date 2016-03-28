@@ -20,8 +20,6 @@ namespace cis237assignment4
 
             Queue<IDroid> droidQueue = new Queue<IDroid>();
 
-            IComparable[] droidArrayIComp = new IComparable[100];
-
             //Create a user interface and pass the droidCollection into it as a dependency
             UserInterface userInterface = new UserInterface(droidCollection);
 
@@ -55,7 +53,8 @@ namespace cis237assignment4
                         break;
 
                     case 4:
-                        userInterface.PrintDroidListByPrice(droidArrayIComp);
+                        droidCollection.SortByPrice();
+                        userInterface.PrintDroidList();
                         break;
                 }
                 //Re-display the menu, and re-prompt for the choice

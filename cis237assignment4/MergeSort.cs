@@ -10,10 +10,10 @@ namespace cis237assignment4
     {
         private IComparable[] aux;
 
-        public void Sort(IComparable[] array)
+        public void Sort(IComparable[] array, int lengthOfCollection)
         {
             aux = new IComparable[array.Length];
-            Sort(array, 0, array.Length - 1);
+            Sort(array, 0, lengthOfCollection);
         }
 
         public void Merge(IComparable[] array, int low, int mid, int high)
