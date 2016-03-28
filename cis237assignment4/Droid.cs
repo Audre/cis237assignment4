@@ -71,5 +71,24 @@ namespace cis237assignment4
                     "Model: " + this.model + Environment.NewLine +
                     "Color: " + this.color + Environment.NewLine;
         }
+
+        public int CompareTo(Object obj)
+        {
+            if (obj == null)
+            {
+                return 1;
+            }
+
+            Droid droid = obj as Droid;
+            if (droid != null)
+            {
+                return this.TotalCost.CompareTo(droid.TotalCost);
+            }
+
+            else
+            {
+                throw new ArgumentException("Object is not a droid.");
+            }
+        }
     }
 }
