@@ -20,6 +20,8 @@ namespace cis237assignment4
 
             Queue<IDroid> droidQueue = new Queue<IDroid>();
 
+            IComparable[] droidArrayIComp = new IComparable[100];
+
             //Create a user interface and pass the droidCollection into it as a dependency
             UserInterface userInterface = new UserInterface(droidCollection);
 
@@ -33,7 +35,7 @@ namespace cis237assignment4
             int choice = userInterface.GetMenuChoice();
 
             //While the choice is not equal to 3, continue to do work with the program
-            while (choice != 4)
+            while (choice != 5)
             {
                 //Test which choice was made
                 switch (choice)
@@ -50,6 +52,10 @@ namespace cis237assignment4
 
                     case 3:
                         userInterface.PrintSortedDroidList(droidQueue, protocolStack, utilityStack, janitorStack, astromechStack);
+                        break;
+
+                    case 4:
+                        userInterface.PrintDroidListByPrice(droidArrayIComp);
                         break;
                 }
                 //Re-display the menu, and re-prompt for the choice

@@ -32,7 +32,8 @@ namespace cis237assignment4
             Console.WriteLine("1. Add a new droid to the system");
             Console.WriteLine("2. Print the list of droids out");
             Console.WriteLine("3. Print droids in order.");
-            Console.WriteLine("4. Exit the program");
+            Console.WriteLine("4. Print in order by price.");
+            Console.WriteLine("5. Exit the program");
         }
 
         //Method to get a menu choice
@@ -65,7 +66,7 @@ namespace cis237assignment4
             int choice = this.GetMenuChoice();
 
             //If the choice is not valid, loop until it is valid, or the user cancels the operation
-            while(choice < 1 || choice > 4)
+            while(choice < 1 || choice > 6)
             {
                 //Prompt for a valid choice
                 this.displayColorSelection();
@@ -102,6 +103,12 @@ namespace cis237assignment4
             droidCollection.SortByType(protocolStack, utilityStack, janitorStack, astromechStack);
             droidCollection.StackToQueue(droidQueue, protocolStack, utilityStack, janitorStack, astromechStack);
             droidCollection.QueueToArray(droidQueue);
+            PrintDroidList();
+        }
+
+        public void PrintDroidListByPrice(IComparable[] droidArray)
+        {
+            droidCollection.SortByPrice(droidArray);
             PrintDroidList();
         }
 

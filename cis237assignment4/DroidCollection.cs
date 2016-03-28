@@ -214,9 +214,10 @@ namespace cis237assignment4
             }
         }
 
-        public void SortByPrice()
+        public void SortByPrice(IComparable[] droidArray)
         {
-            mergeSort.Sort(droidCollection);
+
+            mergeSort.Sort(droidArray);
         }
     }
 }
