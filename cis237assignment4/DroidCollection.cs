@@ -171,27 +171,32 @@ namespace cis237assignment4
                             }
                     }
                 }
+
+                else
+                {
+                    break;
+                }
             }
         }
 
         public void StackToQueue(Queue<IDroid> droidQueue, Stack<ProtocolDroid> protocolStack, Stack<UtilityDroid> utilityStack, Stack<JanitorDroid> janitorStack, Stack<AstromechDroid> astromechStack)
         {
-            while (astromechStack != null)
+            while (!astromechStack.isEmpty())
             {
                 droidQueue.Enqueue(astromechStack.pop());
             }
 
-            while (janitorStack != null)
+            while (!janitorStack.isEmpty())
             {
                 droidQueue.Enqueue(janitorStack.pop());
             }
 
-            while (utilityStack != null)
+            while (!utilityStack.isEmpty())
             {
                 droidQueue.Enqueue(utilityStack.pop());
             }
 
-            while (protocolStack != null)
+            while (!protocolStack.isEmpty())
             {
                 droidQueue.Enqueue(protocolStack.pop());
             }
@@ -200,7 +205,7 @@ namespace cis237assignment4
         public void QueueToArray(Queue<IDroid> droidQueue)
         {
             int i = 0;
-            while (droidQueue != null)
+            while (!droidQueue.isEmpty())
             {
                 droidCollection[i] = droidQueue.Dequeue();
                 i++;

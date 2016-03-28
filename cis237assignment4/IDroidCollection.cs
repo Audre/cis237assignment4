@@ -17,5 +17,9 @@ namespace cis237assignment4
         
         //Method to get the data for a droid into a nicely formated string that can be output.
         string GetPrintString();
+
+        void SortByType(Stack<ProtocolDroid> protocolStack, Stack<UtilityDroid> utilityStack, Stack<JanitorDroid> janitorStack, Stack<AstromechDroid> astromechStack);
+        void StackToQueue(Queue<IDroid> droidQueue, Stack<ProtocolDroid> protocolStack, Stack<UtilityDroid> utilityStack, Stack<JanitorDroid> janitorStack, Stack<AstromechDroid> astromechStack);
+        void QueueToArray(Queue<IDroid> droidQueue);
     }
 }
