@@ -8,15 +8,15 @@ namespace cis237assignment4
 {
     class MergeSort
     {
-        private IComparable[] aux;
+        private static IComparable[] aux;
 
-        public void Sort(IComparable[] array, int lengthOfCollection)
+        public static void Sort(IComparable[] array, int lengthOfCollection)
         {
             aux = new IComparable[array.Length];
             Sort(array, 0, lengthOfCollection);
         }
 
-        public void Merge(IComparable[] array, int low, int mid, int high)
+        public static void Merge(IComparable[] array, int low, int mid, int high)
         {
             
             int i = low;
@@ -39,7 +39,7 @@ namespace cis237assignment4
                     array[k] = aux[i++];
                 }
 
-                else if ((aux[j].CompareTo(aux[i])) > 0)
+                else if (aux[j].CompareTo(aux[i]) < 0)
                 {
                     array[k] = aux[j++];
                 }
@@ -52,14 +52,14 @@ namespace cis237assignment4
 
         }
 
-        private void Sort(IComparable[] array, int low, int high)
+        private static void Sort(IComparable[] array, int low, int high)
         {
             if (high <= low)
             {
                 return;
             }
 
-            int mid = low + (high - low) / 2;
+            int mid = low + ((high - low) / 2);
             Sort(array, low, mid);
             Sort(array, mid + 1, high);
             Merge(array, low, mid, high);

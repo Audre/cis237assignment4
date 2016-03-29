@@ -15,7 +15,7 @@ namespace cis237assignment4
         //Private variable to hold the length of the Collection
         private int lengthOfCollection;
 
-        private MergeSort mergeSort;
+        //private MergeSort mergeSort;
 
         //Constructor that takes in the size of the collection.
         //It sets the size of the internal array that will be used.
@@ -216,11 +216,15 @@ namespace cis237assignment4
 
         public void SortByPrice()
         {
-            foreach (IDroid droid in droidCollection)
+            foreach (IDroid droid in this.droidCollection)
             {
-                droid.CalculateTotalCost();
+                if (droid != null)
+                {
+                    droid.CalculateTotalCost();
+                }
+                
             }
-            mergeSort.Sort(droidCollection, lengthOfCollection - 1);
+            MergeSort.Sort(droidCollection, lengthOfCollection - 1);
         }
     }
 }

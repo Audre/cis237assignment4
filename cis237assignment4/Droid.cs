@@ -79,7 +79,7 @@ namespace cis237assignment4
                 return 1;
             }
 
-            Droid droid = obj as Droid;
+            Droid droid = (Droid)obj;
             if (droid != null)
             {
                 return this.TotalCost.CompareTo(droid.TotalCost);
