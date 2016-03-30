@@ -15,8 +15,6 @@ namespace cis237assignment4
         //Private variable to hold the length of the Collection
         private int lengthOfCollection;
 
-        //private MergeSort mergeSort;
-
         //Constructor that takes in the size of the collection.
         //It sets the size of the internal array that will be used.
         //It also sets the length of the collection to zero since nothing is added yet.
@@ -140,6 +138,7 @@ namespace cis237assignment4
             return returnString;
         }
 
+        // Goes through the array and adds each droid to its respective stack. The droids of each type are "stacked" on top of each other, first in is on the bottom. 
         public void SortByType(Stack<ProtocolDroid> protocolStack, Stack<UtilityDroid> utilityStack, Stack<JanitorDroid> janitorStack, Stack<AstromechDroid> astromechStack)
         {
             foreach (IDroid droid in droidCollection)
@@ -181,6 +180,8 @@ namespace cis237assignment4
             }
         }
 
+        // Adds the droids from each stack to a queue, in the order of astromech, janitor, utility, and then protocol. The droids are removed from the front of the stack (last one in,
+        // first one out). 
         public void StackToQueue(Queue<IDroid> droidQueue, Stack<ProtocolDroid> protocolStack, Stack<UtilityDroid> utilityStack, Stack<JanitorDroid> janitorStack, Stack<AstromechDroid> astromechStack)
         {
             while (!astromechStack.isEmpty())
@@ -204,6 +205,8 @@ namespace cis237assignment4
             }
         }
 
+        // Adds the droids from the queue to the original array, in sorted order of astromech, janitor, utility, then protocol. The droids are removed from the 
+        // front of the queue (first one in, first one out). 
         public void QueueToArray(Queue<IDroid> droidQueue)
         {
             int i = 0;
@@ -214,6 +217,8 @@ namespace cis237assignment4
             }
         }
 
+        // Loops through the droid array, calculates the total cost of each droid, then calls the Sort method from the MergeSort class to sort the 
+        // array by price in ascending order. 
         public void SortByPrice()
         {
             foreach (IDroid droid in this.droidCollection)

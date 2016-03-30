@@ -18,9 +18,16 @@ namespace cis237assignment4
         //Method to get the data for a droid into a nicely formated string that can be output.
         string GetPrintString();
 
+        // Method that sorts the droids by type by placing them in their respective stacks.
         void SortByType(Stack<ProtocolDroid> protocolStack, Stack<UtilityDroid> utilityStack, Stack<JanitorDroid> janitorStack, Stack<AstromechDroid> astromechStack);
+
+        // Method that puts the droids into a queue, one type at a time - astromech, janitor, utility, then protocol.
         void StackToQueue(Queue<IDroid> droidQueue, Stack<ProtocolDroid> protocolStack, Stack<UtilityDroid> utilityStack, Stack<JanitorDroid> janitorStack, Stack<AstromechDroid> astromechStack);
+
+        // Method that takes the droids from the queue and puts them into the original array, in the order they were in the queue - astromech, janitor, utility, then protocol.
         void QueueToArray(Queue<IDroid> droidQueue);
+
+        // Method that uses the class MergeSort to sort the array by ascending price. 
         void SortByPrice();
     }
 }

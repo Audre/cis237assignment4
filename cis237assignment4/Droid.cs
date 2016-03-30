@@ -17,6 +17,7 @@ namespace cis237assignment4
         protected decimal baseCost;
         protected decimal totalCost;
 
+        // Public property to access the model of the droid.
         public string Model
         {
             get { return model; }

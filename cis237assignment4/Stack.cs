@@ -8,14 +8,16 @@ namespace cis237assignment4
 {
     class Stack<T>
     {
-        private Node<T> first;
-        private int count;
+        protected Node<T> first;
+        protected int count;
 
+        // Public property to tell if the stack is empty or not.
         public bool isEmpty()
         {
             return first == null;
         }
 
+        // Public property to get the size of the stack.
         public int size()
         {
             return count;

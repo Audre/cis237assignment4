@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace cis237assignment4
 {
+    // This class is used as a "node" in linked lists. 
     class Node<T>
     {
+        // Public properties
         public Node<T> Next
         {
             get;

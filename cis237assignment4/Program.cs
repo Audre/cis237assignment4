@@ -13,11 +13,13 @@ namespace cis237assignment4
             //Create a new droid collection and set the size of it to 100.
             IDroidCollection droidCollection = new DroidCollection(100);
 
+            // Stacks for each droid to contain the specific droids.
             Stack<AstromechDroid> astromechStack = new Stack<AstromechDroid>();
             Stack<JanitorDroid> janitorStack = new Stack<JanitorDroid>();
             Stack<ProtocolDroid> protocolStack = new Stack<ProtocolDroid>();
             Stack<UtilityDroid> utilityStack = new Stack<UtilityDroid>();
 
+            // Queue to hold the droids in order by type.
             Queue<IDroid> droidQueue = new Queue<IDroid>();
 
             //Create a user interface and pass the droidCollection into it as a dependency
@@ -47,11 +49,16 @@ namespace cis237assignment4
                     case 2:
                         userInterface.PrintDroidList();
                         break;
-
+                    
+                    // Choose to print the droids in order by type.
                     case 3:
-                        userInterface.PrintSortedDroidList(droidQueue, protocolStack, utilityStack, janitorStack, astromechStack);
+                        droidCollection.SortByType(protocolStack, utilityStack, janitorStack, astromechStack);
+                        droidCollection.StackToQueue(droidQueue, protocolStack, utilityStack, janitorStack, astromechStack);
+                        droidCollection.QueueToArray(droidQueue);
+                        userInterface.PrintDroidList();
                         break;
-
+                    
+                    // Choose to print the droids by price in ascending order.
                     case 4:
                         droidCollection.SortByPrice();
                         userInterface.PrintDroidList();

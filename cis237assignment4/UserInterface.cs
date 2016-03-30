@@ -98,20 +98,6 @@ namespace cis237assignment4
             Console.WriteLine(this.droidCollection.GetPrintString());
         }
 
-        public void PrintSortedDroidList(Queue<IDroid> droidQueue, Stack<ProtocolDroid> protocolStack, Stack<UtilityDroid> utilityStack, Stack<JanitorDroid> janitorStack, Stack<AstromechDroid> astromechStack)
-        {
-            droidCollection.SortByType(protocolStack, utilityStack, janitorStack, astromechStack);
-            droidCollection.StackToQueue(droidQueue, protocolStack, utilityStack, janitorStack, astromechStack);
-            droidCollection.QueueToArray(droidQueue);
-            PrintDroidList();
-        }
-
-        public void PrintDroidListByPrice(IComparable[] droidArray)
-        {
-            droidCollection.SortByPrice();
-            PrintDroidList();
-        }
-
         //Display the Model Selection
         private void displayModelSelection()
         {

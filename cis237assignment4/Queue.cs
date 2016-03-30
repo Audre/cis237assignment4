@@ -8,21 +8,25 @@ namespace cis237assignment4
 {
     class Queue<T>
     {
-        private Node<T> first;
-        private Node<T> last;
-        private int count;
+        // Backing fields.
+        protected Node<T> first;
+        protected Node<T> last;
+        protected int count;
 
+        // Public property to know if the queue is empty or not. 
         public bool isEmpty()
         {
             return first == null;
         }
 
+        // Public property to know the size of the queue. 
         public int size()
         {
             return count;
         }
 
-        // Adds a new node to the end of the linked list.
+        // Adds a new node to the end of the linked list. If isEmpty() is true,
+        // then the new node added is the first and last node. 
         public void Enqueue(T data)
         {
             Node<T> oldLast = last;
